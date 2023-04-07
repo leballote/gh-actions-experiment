@@ -28,8 +28,6 @@ jobs:
       - name: List root
         run: ls / -la
 
-      - name: Print contents of hola.txt
-        run: cat hello.txt
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
