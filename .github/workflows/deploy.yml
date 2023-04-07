@@ -36,4 +36,7 @@ jobs:
         run: echo Hello, world!
 
       - name: Print contents of hola.txt 2
-        run: cat hello.txt
+        run: cat hola.txt
+
+      - name: Print contents of my secret
+        run: echo $MY_SECRET
