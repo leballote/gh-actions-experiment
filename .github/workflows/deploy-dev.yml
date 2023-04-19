@@ -48,6 +48,8 @@ jobs:
         run: echo $MY_VARIABLE
 
   step2:
+    env:
+      GITHUB_REF: ${{ github.ref }}
     environment: production
     runs-on: ubuntu-latest
     steps:
