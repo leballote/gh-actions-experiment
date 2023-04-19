@@ -53,3 +53,5 @@ jobs:
     steps:
       - name: Starting step 2
         run: echo this is part of the dev pipeline
+      - name: Print contents of my variable in step 2 It is development branch but using production
+        run: echo $MY_VARIABLE
