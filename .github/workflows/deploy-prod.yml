@@ -13,7 +13,7 @@ on:
 
 env:
   MY_VARIABLE: ${{ vars.MY_VARIABLE }}
-  MY_SECRET: ${{ secrects.MY_SECRET }}
+  MY_SECRET: ${{ secrets.MY_SECRET }}
   PRODUCTION_STRING: production
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -50,6 +50,7 @@ jobs:
 
   step2:
     environment: production
+    runs-on: ubuntu-latest
     steps:
       - name: Starting step 2 of production
         run: echo This is the step 2 of production pipeline
