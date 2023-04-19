@@ -50,7 +50,7 @@ jobs:
   step2:
     env:
       ENV_GH_REF: ${{ github.ref_name }}
-    environment: production
+    environment: ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
       - name: Starting step 2
