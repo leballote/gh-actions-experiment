@@ -49,5 +49,6 @@ jobs:
 
   step2:
     environment: production
-    - name: Starting step 2
-      run: this is part of the dev pipeline
+    steps:
+      - name: Starting step 2
+        run: this is part of the dev pipeline
