@@ -6,17 +6,21 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    branches: ["production"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  MY_VARIABLE: ${{ vars.MY_VARIABLE }}
+  MY_SECRET: ${{ secrets.MY_SECRET }}
+  PRODUCTION_STRING: production
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  step1:
+    environment: production
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -40,3 +44,13 @@ jobs:
 
       - name: Print contents of my secret
         run: echo $MY_SECRET
+
+      - name: Print contents of my variable
+        run: echo $MY_VARIABLE
+
+  step2:
+    environment: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Starting step 2 of production
+        run: echo This is the step 2 of production pipeline
