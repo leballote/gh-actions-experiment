@@ -49,7 +49,7 @@ jobs:
 
   step2:
     env:
-      GITHUB_REF: ${{ github.ref }}
+      ENV_GH_REF: ${{ github.ref }}
     environment: production
     runs-on: ubuntu-latest
     steps:
@@ -57,3 +57,5 @@ jobs:
         run: echo this is part of the dev pipeline
       - name: Print contents of my variable in step 2 It is development branch but using production
         run: echo $MY_VARIABLE
+      - name: What is github ref
+        run: echo $ENV_GH_REF
