@@ -20,13 +20,12 @@ env:
 jobs:
   # This workflow contains a single job called "build"
   step1:
-    environment: development
+    environment: production
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      environment: development
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 

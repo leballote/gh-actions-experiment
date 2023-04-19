@@ -48,5 +48,6 @@ jobs:
         run: echo $MY_VARIABLE
 
   step2:
+    environment: production
     - name: Starting step 2
       run: this is part of the dev pipeline
