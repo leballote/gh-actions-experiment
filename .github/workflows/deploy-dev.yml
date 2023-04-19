@@ -52,4 +52,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Starting step 2
-        run: this is part of the dev pipeline
+        run: echo this is part of the dev pipeline
