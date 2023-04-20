@@ -10,9 +10,16 @@ on:
               required: true
               type: string
 
+env:
+  $MY_VAR: ${{ inputs.my-var }}
+
 jobs:
   printing_var:
       runs-on: ubuntu-latest
       steps:
-          - name: Printing the var
+          - name: Printing inputs.my-var
+            run: echo my var is ${{ inputs.my-var }}
+
+          - name: Printing $MY_VAR
             run: echo my var is $MY_VAR
+
