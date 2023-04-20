@@ -11,11 +11,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  MY_VARIABLE: ${{ vars.MY_VARIABLE }}
-  MY_SECRET: ${{ secrets.MY_SECRET }}
-  PRODUCTION_STRING: production
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -42,15 +37,7 @@ jobs:
       - name: Print contents of hola.txt 2
         run: cat hola.txt
 
-      - name: Print contents of my secret
-        run: echo $MY_SECRET
-
-      - name: Print contents of my variable
-        run: echo $MY_VARIABLE
-
-  step2:
-    environment: production
-    runs-on: ubuntu-latest
-    steps:
-      - name: Starting step 2 of production
-        run: echo This is the step 2 of production pipeline
+  print_my_var:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      my-var: ${{ vars.MY_VAR_PROD }}

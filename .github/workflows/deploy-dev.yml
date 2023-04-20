@@ -11,10 +11,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  MY_VARIABLE: ${{ vars.MY_VARIABLE }}
-  MY_SECRET: ${{ secrets.MY_SECRET }}
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -41,21 +37,7 @@ jobs:
       - name: Print contents of hola.txt 2
         run: cat hola.txt
 
-      - name: Print contents of my secret
-        run: echo $MY_SECRET
-
-      - name: Print contents of my variable
-        run: echo $MY_VARIABLE
-
-  step2:
-    env:
-      ENV_GH_REF: ${{ github.ref_name }}
-    environment: ${{ github.ref_name }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Starting step 2
-        run: echo this is part of the dev pipeline
-      - name: Print contents of my variable in step 2 It is development branch but using production
-        run: echo $MY_VARIABLE
-      - name: What is github ref
-        run: echo $ENV_GH_REF
+  print_my_var:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      my-var: ${{ vars.MY_VAR_PROD }}
