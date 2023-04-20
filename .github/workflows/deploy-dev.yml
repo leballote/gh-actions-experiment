@@ -30,14 +30,13 @@ jobs:
       - name: List root
         run: ls / -la
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       - name: Print contents of hola.txt 2
         run: cat hola.txt
+
+      - name: Print MY_VAR_DEV
+        run: echo ${{ vars.MY_VAR_DEV }}
 
   print_my_var:
     uses: ./.github/workflows/reusable-workflow.yml
     with:
-      my-var: ${{ vars.MY_VAR_PROD }}
+      my-var: ${{ vars.MY_VAR_DEV }}
