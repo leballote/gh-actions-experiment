@@ -11,7 +11,7 @@ on:
               type: string
 
 env:
-  $MY_VAR: ${{ inputs.my-var }}
+  MY_VAR: ${{ inputs.my-var }}
 
 jobs:
   printing_var:
