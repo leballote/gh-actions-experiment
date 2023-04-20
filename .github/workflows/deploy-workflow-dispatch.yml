@@ -1,9 +1,6 @@
 name: WORKFLOW DISPATCH
 
 on:
-    push:
-        branches:
-            - development
     workflow_dispatch:
         inputs:
             var:
