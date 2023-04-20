@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  workflow_dispatch:
+    inputs:
+        var:
+            required: false
+            type: string
+            default: hi dude
+        another:
+            required: true
+            type: string
+            default: Hi dude this is great
+
+jobs:
+  step1:
+    environment: production
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: List files
+        run: ls -la
+
+      - name: List root
+        run: ls / -la
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Print contents of hola.txt 2
+        run: cat hola.txt
+
+      - name: Print input variable
+        run: echo ${{ github.event.inputs.var }} and ${{ github.event.inputs.another }}
