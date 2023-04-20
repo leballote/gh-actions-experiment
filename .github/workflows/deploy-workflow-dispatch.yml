@@ -1,16 +1,15 @@
 name: WORKFLOW DISPATCH
 
 on:
-  workflow_dispatch:
-    inputs:
-        var:
-            required: false
-            type: string
-            default: hi dude
-        another:
-            required: true
-            type: string
-            default: Hi dude this is great
+    push:
+        branches:
+            - development
+    workflow_dispatch:
+        inputs:
+            var:
+                required: false
+                type: string
+                default: var with workflow_dispatch event
 
 jobs:
   step1:
@@ -33,4 +32,4 @@ jobs:
         run: cat hola.txt
 
       - name: Print input variable
-        run: echo ${{ github.event.inputs.var }} and ${{ github.event.inputs.another }}
+        run: echo ${{ github.event_name == 'push' && 'my var on push event' || github.event.inputs.var }}
